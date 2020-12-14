@@ -1,14 +1,16 @@
 const grid = document.querySelector('.grid')
 const startButton = document.querySelector('#start') // or document.getElementById('start')
 const scoreDisplay = document.querySelector('#score') // or document.getElementById('score')
+const highScoreDisplay = document.querySelector('#highScore')
 let squares = []
 let currentSnake = [2,1,0]
 let direction = 1
 const width = 10
 let appleIndex = 0
 let score = 0
-let intervalTime = 1000
-let speedChange = 0.9
+let highScore = 0 
+let intervalTime = 750
+let speedChange = 0.95
 let timerId = 0
 
 function createGrid() {
@@ -34,8 +36,9 @@ function startGame() {
     scoreDisplay.textContent = score
     direction = 1
     intervalTime = 1000
-    generateApples()
+    
     currentSnake.forEach(index => squares[index].classList.add('snake'))
+    generateApples()
     timerId = setInterval(move, intervalTime)
 }
 
@@ -54,15 +57,22 @@ function move() {
     squares[tail].classList.remove('snake')
     currentSnake.unshift(currentSnake[0] + direction)
     if (squares[currentSnake[0]].classList.contains('apple')){
-        squares[currentSnake[0]].classList.remove('apple')
         squares[tail].classList.add('snake')
         currentSnake.push(tail)
+        squares[currentSnake[0]].classList.remove('apple')
         generateApples()
         score++
+        if (score > highScore){
+            highScore = score
+        } else if (score < highScore) {
+            highScore = highScore
+        }
         scoreDisplay.textContent = score
+        highScoreDisplay.textContent = highScore
         clearInterval(timerId)
         intervalTime = intervalTime * speedChange
         timerId = setInterval(move, intervalTime)
+        
 
 
 
@@ -74,12 +84,11 @@ function move() {
 }
 
 
-
 function generateApples() {
     do {
         appleIndex = Math.floor(Math.random() * (width*width))
         
-    } while (squares[appleIndex].classList.contains('snake'))
+    } while (squares[appleIndex].classList.contains('snake')); (squares[appleIndex].classList.contains('apple'))
     squares[appleIndex].classList.add('apple')
 }
 
@@ -99,5 +108,3 @@ function control(e) {
 
 document.addEventListener('keydown', control)
 startButton.addEventListener('click', startGame)
-
-// clearInterval(timerId)
