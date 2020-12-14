@@ -32,8 +32,12 @@ html, body {
     
 }
 
-.snake {
+.classicSnake {
     background-color: green;
+}
+
+.sleekSnake {
+    background-color:red;
 }
 
 .apple {
