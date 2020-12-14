@@ -60,6 +60,7 @@ function move() {
         squares[tail].classList.add('snake')
         currentSnake.push(tail)
         squares[currentSnake[0]].classList.remove('apple')
+        squares[currentSnake[0]].classList.add('snake')
         generateApples()
         score++
         if (score > highScore){
@@ -73,14 +74,9 @@ function move() {
         intervalTime = intervalTime * speedChange
         timerId = setInterval(move, intervalTime)
         
-
-
-
-        // remove the class of apple
-        // grow snake by one 
     }
 
-    squares[currentSnake[0]].classList.add('snake')
+    
 }
 
 
