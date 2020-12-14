@@ -24,9 +24,9 @@ html, body {
 }
 
 .square {
-    width: 48px;
-    height: 48px;
-    border:white solid 1px;
+    width: 50px;
+    height: 50px;
+    
     /* box-shadow: inset 0 0 5px red; */
     
     
