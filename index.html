@@ -6,13 +6,16 @@
     <body>
         <div class="main">
             <h1>SNAKE GAME 1.8</h1>
-            <button id="arcadeMode">ARCADE</button>
-            <button id="sleekMode">SLEEK</button>
-            <button id="start">START/RESTART</button>
-
-            <h2>High Score: <span id="highScore">0</span> </h2>
-            <h2>Score: <span id="score">0</span> </h2>
-            <h2>Moves: <span id="moves">0</span> </h2>
+            <div class="buttons">
+                <button id="arcadeMode">ARCADE</button>
+                <button id="sleekMode">SLEEK</button>
+                <button id="start">START/RESTART</button>
+            </div>
+            <div class="metrics">
+                <h2>High Score: <span class="metric-item" id="highScore">0</span> </h2>
+                <h2>Score: <span class="metric-item" id="score">0</span> </h2>
+                <h2>Moves: <span class="metric-item" id="moves">0</span> </h2>
+            </div>
 
             <div class="grid"></div>
         </div>

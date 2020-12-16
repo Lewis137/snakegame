@@ -1,20 +1,40 @@
 html, body {
-    margin: 10;
-    padding: 10;
+    margin: 0 auto;
+    max-width: 1000px;
+   
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    /* border: 1px solid red */
    
 }
 
 .main {
     color: green;
-    
-
    
+}
+
+h1 {
+    text-align: center;
+}
+
+.metrics {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.metric-item {
+    margin: 0px 5px;
 }
 
 .grid {
     width: 450px;
     max-height: 450px;
+    margin: 0 auto;
     border: 2px solid black;
     display: flex;
     flex-wrap: wrap;
@@ -26,8 +46,7 @@ html, body {
     height: 45px;
     
     /* box-shadow: inset 0 0 5px red; */
-    
-    
+       
 }
 
 .arcadeSnake {
