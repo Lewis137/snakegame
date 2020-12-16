@@ -30,14 +30,21 @@ html, body {
     
 }
 
-.classicSnake {
-    background-color: green;
+.arcadeSnake {
+    background-color: #33ff00;
 }
 
 .sleekSnake {
     background-color:red;
 }
 
-.apple {
-    background-color: blue;
+.arcadeApple {
+    background-color: #f51e26;
 }
+
+.sleekApple {
+    background-color: purple;
+}
+
+/* ÷color scheme */
+

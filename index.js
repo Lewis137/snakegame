@@ -2,13 +2,13 @@ const grid = document.querySelector('.grid')
 const startButton = document.querySelector('#start') 
 const scoreDisplay = document.querySelector('#score') 
 const highScoreDisplay = document.querySelector('#highScore')
-const classicButton = document.querySelector('#classicMode')
+const arcadeButton = document.querySelector('#arcadeMode')
 const sleekButton = document.querySelector('#sleekMode')
 let squares = []
+let appleIndex = 0
 let currentSnake = [2,1,0]
 let direction = 1
 const width = 10
-let appleIndex = 0
 var moves = 0
 var movesDisplay = document.getElementById("moves")
 let score = 0
@@ -16,7 +16,8 @@ let highScore = 0
 let intervalTime = 750
 let speedChange = 0.95
 let timerId = 0
-var snake = 'classicSnake'
+var snake = 'arcadeSnake'
+var apple = 'arcadeApple'
 
 
 function control(e) {
@@ -52,29 +53,13 @@ function createGrid() {
 
 createGrid()
 
-function classicTheme() {
-    currentSnake.forEach(index => squares[index].classList.remove(snake))
-    snake = 'classicSnake'
-    currentSnake.forEach(index => squares[index].classList.add(snake))
-    
-}
-
-function sleekTheme() {
-    currentSnake.forEach(index => squares[index].classList.remove(snake))
-    snake = 'sleekSnake'
-    currentSnake.forEach(index => squares[index].classList.add(snake))
-    
-    
-
-}
-
 
 function startGame() {
     
     score = 0
     moves = 0
     currentSnake.forEach(index => squares[index].classList.remove(snake))
-    squares[appleIndex].classList.remove('apple')
+    squares[appleIndex].classList.remove(apple)
     clearInterval(timerId)
     currentSnake = [2,1,0]
     movesDisplay.textContent = 0
@@ -103,10 +88,10 @@ function move() {
     squares[tail].classList.remove(snake)
     currentSnake.unshift(currentSnake[0] + direction)
     movesDisplay.textContent = moves
-    if (squares[currentSnake[0]].classList.contains('apple')){
+    if (squares[currentSnake[0]].classList.contains(apple)){
         squares[tail].classList.add(snake)
         currentSnake.push(tail)
-        squares[currentSnake[0]].classList.remove('apple')
+        squares[currentSnake[0]].classList.remove(apple)
         squares[currentSnake[0]].classList.add(snake)
         generateApples()
         score++
@@ -131,12 +116,44 @@ function generateApples() {
     do {
         appleIndex = Math.floor(Math.random() * (width*width))
         
-    } while (squares[appleIndex].classList.contains(snake)); (squares[appleIndex].classList.contains('apple'))
-    squares[appleIndex].classList.add('apple')
+    } while (squares[appleIndex].classList.contains(snake)); (squares[appleIndex].classList.contains(apple))
+    squares[appleIndex].classList.add(apple)
 }
 
+function arcadeTheme() {
+    
+
+    squares[appleIndex].classList.remove(apple)
+    apple = 'arcadeApple'
+    squares[appleIndex].classList.add(apple)
+
+    currentSnake.forEach(index => squares[index].classList.remove(snake))
+    currentSnake.forEach(index => squares[index].classList.remove(apple))
+    snake = 'arcadeSnake'
+    currentSnake.forEach(index => squares[index].classList.add(snake))
+    
+    
+}
+
+function sleekTheme() {
+    
+    
+    squares[appleIndex].classList.remove(apple)
+    apple = 'sleekApple'
+    squares[appleIndex].classList.add(apple)
+
+    currentSnake.forEach(index => squares[index].classList.remove(snake))
+    currentSnake.forEach(index => squares[index].classList.remove(apple))
+    snake = 'sleekSnake'
+    currentSnake.forEach(index => squares[index].classList.add(snake))
+    
+    
+    
+    
+
+}
 
 document.addEventListener('keydown', control)
 startButton.addEventListener('click', startGame)
-classicButton.addEventListener('click', classicTheme)
+arcadeButton.addEventListener('click', arcadeTheme)
 sleekButton.addEventListener('click', sleekTheme)
