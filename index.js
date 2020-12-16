@@ -59,13 +59,9 @@ function classicTheme() {
     
 }
 
-function changeTheme2() {
+function sleekTheme() {
     currentSnake.forEach(index => squares[index].classList.remove(snake))
     snake = 'sleekSnake'
-    // currentSnake.forEach(index => squares[index].classList.add(snake))
-    // startGame()
-    
-    
     currentSnake.forEach(index => squares[index].classList.add(snake))
     
     
@@ -143,4 +139,4 @@ function generateApples() {
 document.addEventListener('keydown', control)
 startButton.addEventListener('click', startGame)
 classicButton.addEventListener('click', classicTheme)
-sleekButton.addEventListener('click', changeTheme2)
+sleekButton.addEventListener('click', sleekTheme)
