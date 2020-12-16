@@ -71,6 +71,7 @@ function startGame() {
     currentSnake.forEach(index => squares[index].classList.add(snake))
     generateApples()
     timerId = setInterval(move, intervalTime)
+    off()
     
 }
 
@@ -84,7 +85,12 @@ function move() {
         squares[currentSnake[0] + direction].classList.contains(snake)
 
     ) 
+    {
+    on()
     return clearInterval(timerId)
+    }
+    
+    else { 
     
     const tail = currentSnake.pop()
     squares[tail].classList.remove(snake)
@@ -112,7 +118,7 @@ function move() {
     squares[currentSnake[0]].classList.add(snake)
     
 }
-
+}
 
 function generateApples() {
     do {
@@ -166,3 +172,15 @@ document.addEventListener('keydown', control)
 startButton.addEventListener('click', startGame)
 arcadeButton.addEventListener('click', arcadeTheme)
 sleekButton.addEventListener('click', sleekTheme)
+
+
+function on() {
+    document.getElementById("overlay").style.display = "block";
+}
+
+
+  
+function off() {
+    document.getElementById("overlay").style.display = "none";
+}
+
