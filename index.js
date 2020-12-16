@@ -4,6 +4,8 @@ const scoreDisplay = document.querySelector('#score')
 const highScoreDisplay = document.querySelector('#highScore')
 const arcadeButton = document.querySelector('#arcadeMode')
 const sleekButton = document.querySelector('#sleekMode')
+const background = document.getElementsByTagName('body')[0]
+
 let squares = []
 let appleIndex = 0
 let currentSnake = [2,1,0]
@@ -131,6 +133,11 @@ function arcadeTheme() {
     currentSnake.forEach(index => squares[index].classList.remove(apple))
     snake = 'arcadeSnake'
     currentSnake.forEach(index => squares[index].classList.add(snake))
+    // background.classList.add('arcadeBackground')
+    background.style.backgroundColor = "black"
+    grid.style.borderColor = '#33ff00'
+    
+
     
     
 }
@@ -146,6 +153,8 @@ function sleekTheme() {
     currentSnake.forEach(index => squares[index].classList.remove(apple))
     snake = 'sleekSnake'
     currentSnake.forEach(index => squares[index].classList.add(snake))
+    background.style.backgroundColor = "white"
+    grid.style.borderColor = "black"
     
     
     
