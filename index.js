@@ -183,6 +183,7 @@ sleekButton.addEventListener('click', sleekTheme)
 function appleRemove() {
     if (appleDelete.includes(appleIndex)){
         squares[appleIndex].classList.remove(apple)
+        appleIndex = 44
  } else {}
 }
 
