@@ -23,6 +23,7 @@ var apple = 'arcadeApple'
 let appleDelete = [33,34,35,36,43,44,45,46,53,54,55,56,63,64,65,66]
 
 
+
 function control(e) {
     if (e.keyCode === 39){
         moves++
@@ -87,9 +88,11 @@ function move() {
 
     ) 
     {
-    appleRemove()    
+    appleRemove()
     gameOverOn()
-    return clearInterval(timerId)
+    return clearInterval(timerId)    
+    
+    
     }
     
     else { 
@@ -135,6 +138,7 @@ function arcadeTheme() {
 
     squares[appleIndex].classList.remove(apple)
     apple = 'arcadeApple'
+   
     squares[appleIndex].classList.add(apple)
 
     currentSnake.forEach(index => squares[index].classList.remove(snake))
@@ -184,6 +188,7 @@ function appleRemove() {
 
 function gameOverOn() {
     document.getElementById("overlay").style.display = "block";
+    
 }
  
 
