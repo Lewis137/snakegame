@@ -7,7 +7,7 @@ const sleekButton = document.querySelector('#sleekMode')
 const background = document.getElementsByTagName('body')[0]
 
 let squares = []
-let appleIndex = 0
+var appleIndex = 0
 let currentSnake = [2,1,0]
 let direction = 1
 const width = 10
@@ -20,6 +20,7 @@ let speedChange = 0.95
 let timerId = 0
 var snake = 'arcadeSnake'
 var apple = 'arcadeApple'
+let appleDelete = [33,34,35,36,43,44,45,46,53,54,55,56,63,64,65,66]
 
 
 function control(e) {
@@ -71,7 +72,7 @@ function startGame() {
     currentSnake.forEach(index => squares[index].classList.add(snake))
     generateApples()
     timerId = setInterval(move, intervalTime)
-    off()
+    gameOverOff()
     
 }
 
@@ -86,7 +87,8 @@ function move() {
 
     ) 
     {
-    on()
+    appleRemove()    
+    gameOverOn()
     return clearInterval(timerId)
     }
     
@@ -139,7 +141,8 @@ function arcadeTheme() {
     currentSnake.forEach(index => squares[index].classList.remove(apple))
     snake = 'arcadeSnake'
     currentSnake.forEach(index => squares[index].classList.add(snake))
-    // background.classList.add('arcadeBackground')
+   
+    
     background.style.backgroundColor = "black"
     grid.style.borderColor = '#33ff00'
     
@@ -173,14 +176,19 @@ startButton.addEventListener('click', startGame)
 arcadeButton.addEventListener('click', arcadeTheme)
 sleekButton.addEventListener('click', sleekTheme)
 
-
-function on() {
-    document.getElementById("overlay").style.display = "block";
+function appleRemove() {
+    if (appleDelete.includes(appleIndex)){
+        squares[appleIndex].classList.remove(apple)
+ } else {}
 }
 
+function gameOverOn() {
+    document.getElementById("overlay").style.display = "block";
+}
+ 
 
   
-function off() {
+function gameOverOff() {
     document.getElementById("overlay").style.display = "none";
 }
 

@@ -5,7 +5,7 @@
     </head>
     <body>
         <div class="main">
-            <h1>SNAKE GAME 1.9.1</h1>
+            <h1>SNAKE GAME 1.9.2</h1>
             <div class="buttons">
                 <button id="arcadeMode">ARCADE</button>
                 <button id="sleekMode">SLEEK</button>
@@ -16,13 +16,15 @@
                 <h2 class="metric-item">Score:<span id="score">0</span> </h2>
                 <h2 class="metric-item">Moves:<span id="moves">0</span> </h2>
             </div>
-
-            <div class="grid"></div>
+            <div class="complete-grid">
+                <div class="grid"></div>
+                <div id="overlay">
+                    <div id="text"><p><strong>GAME OVER</strong></p></div>
+                </div>
+            </div>
             
         </div>
-        <div id="overlay">
-            <div id="text"><p><strong>GAME OVER</strong></p></div>
-        </div>
+        
         <h3>Copyright Lewis Chandler</h2>
     </body>
     <script src="index.js"></script>
