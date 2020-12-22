@@ -1,4 +1,6 @@
 const grid = document.querySelector('.grid')
+const mainSelect = document.getElementById('idmain')
+const overlay = document.getElementById('overlay')
 const startButton = document.querySelector('#start')
 const scoreDisplay = document.querySelector('#score')
 const highScoreDisplay = document.querySelector('#highScore')
@@ -6,7 +8,7 @@ const arcadeButton = document.querySelector('#arcadeMode')
 const sleekButton = document.querySelector('#sleekMode')
 const background = document.getElementsByTagName('body')[0]
 const movesDisplay = document.getElementById('moves')
-
+var overlaySelection = 'overlay-arcade'
 let squares = []
 var appleIndex = 0
 let currentSnake = [2, 1, 0]
@@ -41,19 +43,19 @@ let appleDelete = [
 ]
 
 function control (e) {
-  if (e.keyCode === 39) {
+  if (e.keyCode === 39 && direction !== -1 && direction !== 1) {
     moves++
     direction = 1
     // right
-  } else if (e.keyCode === 38) {
+  } else if (e.keyCode === 38 && direction !== width && direction !== -width) {
     moves++
     direction = -width
     // up
-  } else if (e.keyCode === 37) {
+  } else if (e.keyCode === 37 && direction !== 1 && direction !== -1) {
     moves++
     direction = -1
     // left
-  } else if (e.keyCode === 40) {
+  } else if (e.keyCode === 40 && direction !== -width && direction !== width) {
     moves++
     direction = width
     // down
@@ -85,10 +87,12 @@ function startGame () {
   currentSnake.forEach(index => squares[index].classList.add(snake))
   generateApples()
   timerId = setInterval(move, intervalTime)
+
   gameOverOff()
 }
 
 function move () {
+  console.log(direction)
   if (
     (currentSnake[0] + width >= width * width && direction === width) || // bottom
     (currentSnake[0] % width === width - 1 && direction === 1) || // right
@@ -100,30 +104,34 @@ function move () {
     gameOverOn()
     return clearInterval(timerId)
   } else {
-    const tail = currentSnake.pop()
-    squares[tail].classList.remove(snake)
-    currentSnake.unshift(currentSnake[0] + direction)
-    movesDisplay.textContent = moves
-    if (squares[currentSnake[0]].classList.contains(apple)) {
-      squares[tail].classList.add(snake)
-      currentSnake.push(tail)
-      squares[currentSnake[0]].classList.remove(apple)
-      squares[currentSnake[0]].classList.add(snake)
-      generateApples()
-      score++
-      if (score > highScore) {
-        highScore = score
-      } else if (score < highScore) {
-        highScore = highScore
-      }
-      scoreDisplay.textContent = score
-      highScoreDisplay.textContent = highScore
-      clearInterval(timerId)
-      intervalTime = intervalTime * speedChange
-      timerId = setInterval(move, intervalTime)
-    }
-    squares[currentSnake[0]].classList.add(snake)
+    addLength()
   }
+}
+
+function addLength () {
+  const tail = currentSnake.pop()
+  squares[tail].classList.remove(snake)
+  currentSnake.unshift(currentSnake[0] + direction)
+  movesDisplay.textContent = moves
+  if (squares[currentSnake[0]].classList.contains(apple)) {
+    squares[tail].classList.add(snake)
+    currentSnake.push(tail)
+    squares[currentSnake[0]].classList.remove(apple)
+    squares[currentSnake[0]].classList.add(snake)
+    generateApples()
+    score++
+    if (score > highScore) {
+      highScore = score
+    } else if (score < highScore) {
+      highScore = highScore
+    }
+    scoreDisplay.textContent = score
+    highScoreDisplay.textContent = highScore
+    clearInterval(timerId)
+    intervalTime = intervalTime * speedChange
+    timerId = setInterval(move, intervalTime)
+  }
+  squares[currentSnake[0]].classList.add(snake)
 }
 
 function generateApples () {
@@ -147,6 +155,28 @@ function arcadeTheme () {
 
   background.style.backgroundColor = 'black'
   grid.style.borderColor = '#33ff00'
+  mainSelect.style.color = '#33ff00'
+
+  sleekButton.style.color = '#33ff00'
+  sleekButton.style.borderColor = '#33ff00'
+  sleekButton.style.backgroundColor = 'black'
+
+  arcadeButton.style.color = '#33ff00'
+  arcadeButton.style.borderColor = '#33ff00'
+  arcadeButton.style.backgroundColor = 'black'
+
+  startButton.style.color = '#33ff00'
+  startButton.style.borderColor = '#33ff00'
+  startButton.style.backgroundColor = 'black'
+  sleekButton.classList.remove('button-sleek')
+  sleekButton.classList.add('button-arcade')
+  arcadeButton.classList.remove('button-sleek')
+  arcadeButton.classList.add('button-arcade')
+  startButton.classList.remove('button-sleek')
+  startButton.classList.add('button-arcade')
+  overlay.classList.remove(overlaySelection)
+  overlaySelection = 'overlay-arcade'
+  overlay.classList.add(overlaySelection)
 }
 
 function sleekTheme () {
@@ -158,8 +188,26 @@ function sleekTheme () {
   currentSnake.forEach(index => squares[index].classList.remove(apple))
   snake = 'sleekSnake'
   currentSnake.forEach(index => squares[index].classList.add(snake))
-  background.style.backgroundColor = 'white'
-  grid.style.borderColor = 'black'
+
+  background.style.backgroundColor = '#e6ebe0'
+  grid.style.borderColor = '#ed6a5a'
+  mainSelect.style.color = '#ed6a5a'
+  sleekButton.style.color = '#ed6a5a'
+  sleekButton.style.borderColor = '#ed6a5a'
+  sleekButton.style.backgroundColor = '#e6ebe0'
+  sleekButton.classList.add('button-sleek')
+  arcadeButton.style.color = '#ed6a5a'
+  arcadeButton.style.borderColor = '#ed6a5a'
+  arcadeButton.style.backgroundColor = '#e6ebe0'
+  arcadeButton.classList.add('button-sleek')
+  startButton.style.color = '#ed6a5a'
+  startButton.style.borderColor = '#ed6a5a'
+  startButton.style.backgroundColor = '#e6ebe0'
+  startButton.classList.add('button-sleek')
+
+  overlay.classList.remove(overlaySelection)
+  overlaySelection = 'overlay-sleek'
+  overlay.classList.add(overlaySelection)
 }
 
 document.addEventListener('keydown', control)
@@ -176,9 +224,11 @@ function appleRemove () {
 }
 
 function gameOverOn () {
-  document.getElementById('overlay').style.display = 'block'
+  overlay.style.display = 'block'
+  overlay.classList.add(overlaySelection)
 }
 
 function gameOverOff () {
-  document.getElementById('overlay').style.display = 'none'
+  overlay.style.display = 'none'
+  overlay.classList.remove(overlaySelection)
 }
