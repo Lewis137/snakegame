@@ -8,6 +8,7 @@ const arcadeButton = document.querySelector('#arcadeMode')
 const sleekButton = document.querySelector('#sleekMode')
 const background = document.getElementsByTagName('body')[0]
 const movesDisplay = document.getElementById('moves')
+const upArrow = document.getElementById('upButton')
 var overlaySelection = 'overlay-arcade'
 let squares = []
 var appleIndex = 0
@@ -232,3 +233,9 @@ function gameOverOff () {
   overlay.style.display = 'none'
   overlay.classList.remove(overlaySelection)
 }
+
+function upArrowfunction () {
+  direction = -width
+}
+
+upArrow.addEventListener('click', upArrowfunction)

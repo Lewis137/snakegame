@@ -125,3 +125,8 @@ h3 {
   color: black;
   line-height: 100px;
 }
+
+#mobileButtons {
+  width: 100px;
+  margin: auto;
+}
