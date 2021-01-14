@@ -127,6 +127,19 @@ h3 {
 }
 
 #mobileButtons {
+  display: flex;
   width: 100px;
   margin: auto;
+  text-align: center;
+}
+
+.mobileButton {
+  width: 30px;
+  height: 50px;
+  margin: 3px;
+  text-align: center;
+  border: 0px;
+  border-radius: 10px;
+  font-size: 24px;
+  padding: 5px;
 }

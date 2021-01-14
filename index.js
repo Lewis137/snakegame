@@ -9,6 +9,9 @@ const sleekButton = document.querySelector('#sleekMode')
 const background = document.getElementsByTagName('body')[0]
 const movesDisplay = document.getElementById('moves')
 const upArrow = document.getElementById('upButton')
+const downArrow = document.getElementById('downButton')
+const leftArrow = document.getElementById('leftButton')
+const rightArrow = document.getElementById('rightButton')
 var overlaySelection = 'overlay-arcade'
 let squares = []
 var appleIndex = 0
@@ -238,4 +241,19 @@ function upArrowfunction () {
   direction = -width
 }
 
+function downArrowfunction () {
+  direction = +width
+}
+
+function leftArrowfunction () {
+  direction = -1
+}
+
+function rightArrowfunction () {
+  direction = +1
+}
+
 upArrow.addEventListener('click', upArrowfunction)
+downArrow.addEventListener('click', downArrowfunction)
+leftArrow.addEventListener('click', leftArrowfunction)
+rightArrow.addEventListener('click', rightArrowfunction)
