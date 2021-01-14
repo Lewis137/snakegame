@@ -127,19 +127,24 @@ h3 {
 }
 
 #mobileButtons {
-  display: flex;
-  width: 100px;
-  margin: auto;
   text-align: center;
+  border: #f51e26 solid 1px;
+  width: 500px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .mobileButton {
-  width: 30px;
+  width: 50px;
   height: 50px;
-  margin: 3px;
+  margin: 5px;
   text-align: center;
-  border: 0px;
+  border: 0px solid red;
   border-radius: 10px;
   font-size: 24px;
   padding: 5px;
+}
+
+#mid {
+  margin: 0 8px;
 }
