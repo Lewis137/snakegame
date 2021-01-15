@@ -3,7 +3,7 @@ body {
   max-width: 1000px;
   background-color: black;
   font-family: Courier;
-  touch-action: none;
+  touch-action: manipulation;
 }
 
 .button {
