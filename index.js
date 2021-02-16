@@ -12,54 +12,36 @@ const upArrow = document.getElementById('upButton')
 const downArrow = document.getElementById('downButton')
 const leftArrow = document.getElementById('leftButton')
 const rightArrow = document.getElementById('rightButton')
-var overlaySelection = 'overlay-arcade'
-let squares = []
-var appleIndex = 0
+let overlaySelection = 'overlay-arcade'
+const squares = []
+let appleIndex = 0
 let currentSnake = [2, 1, 0]
 let direction = 1
 const width = 10
-var moves = 0
-
+let moves = 0
 let score = 0
 let highScore = 0
 let intervalTime = 750
-let speedChange = 0.95
+const speedChange = 0.95
 let timerId = 0
-var snake = 'arcadeSnake'
-var apple = 'arcadeApple'
-let appleDelete = [
-  33,
-  34,
-  35,
-  36,
-  43,
-  44,
-  45,
-  46,
-  53,
-  54,
-  55,
-  56,
-  63,
-  64,
-  65,
-  66
-]
+let snake = 'arcadeSnake'
+let apple = 'arcadeApple'
+const appleDelete = [33, 34, 35, 36, 43, 44, 45, 46, 53, 54, 55, 56, 63, 64, 65, 66]
 
-function control (e) {
-  if (e.keyCode === 39 && direction !== -1 && direction !== 1) {
+function control (event) {
+  if (event.keyCode === 39 && direction !== -1 && direction !== 1) {
     moves++
     direction = 1
     // right
-  } else if (e.keyCode === 38 && direction !== width && direction !== -width) {
+  } else if (event.keyCode === 38 && direction !== width && direction !== -width) {
     moves++
     direction = -width
     // up
-  } else if (e.keyCode === 37 && direction !== 1 && direction !== -1) {
+  } else if (event.keyCode === 37 && direction !== 1 && direction !== -1) {
     moves++
     direction = -1
     // left
-  } else if (e.keyCode === 40 && direction !== -width && direction !== width) {
+  } else if (event.keyCode === 40 && direction !== -width && direction !== width) {
     moves++
     direction = width
     // down
@@ -77,7 +59,7 @@ function createGrid () {
 
 createGrid()
 
-function startGame () {
+const startGame = () => {
   score = 0
   moves = 0
   currentSnake.forEach(index => squares[index].classList.remove(snake))
@@ -126,7 +108,7 @@ function addLength () {
     score++
     if (score > highScore) {
       highScore = score
-    } else if (score < highScore) {
+    } else {
       highScore = highScore
     }
     scoreDisplay.textContent = score

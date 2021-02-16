@@ -1,50 +1,45 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<head>
-    <link rel="stylesheet" href="style.css">
-
-</head>
-
-<body>
+  <body>
     <div id="idmain" class="main">
-        <h1>SNAKE GAME 1.9.8</h1>
-        <div class="buttons">
-            <button class='button' id="arcadeMode">ARCADE</button>
-            <button class='button' id="sleekMode">PASTEL</button>
-            <button class='button' id="start">RE/START</button>
+      <h1>SNAKE GAME 1.9.8</h1>
+      <div class="buttons">
+        <button class="button" id="arcadeMode">ARCADE</button>
+        <button class="button" id="sleekMode">PASTEL</button>
+        <button class="button" id="start">RE/START</button>
+      </div>
+      <div class="metrics">
+        <h2 class="metric-item">High Score:<span id="highScore">0</span></h2>
+        <h2 class="metric-item">Score:<span id="score">0</span></h2>
+        <h2 class="metric-item">Moves:<span id="moves">0</span></h2>
+      </div>
+      <div class="complete-grid">
+        <div class="grid"></div>
+        <div id="overlay">
+          <div id="text">
+            <p><strong>GAME OVER</strong></p>
+          </div>
         </div>
-        <div class="metrics">
-            <h2 class="metric-item">High Score:<span id="highScore">0</span> </h2>
-            <h2 class="metric-item">Score:<span id="score">0</span> </h2>
-            <h2 class="metric-item">Moves:<span id="moves">0</span> </h2>
-        </div>
-        <div class="complete-grid">
-            <div class="grid"></div>
-            <div id="overlay">
-                <div id="text">
-                    <p><strong>GAME OVER</strong></p>
-                </div>
-            </div>
-        </div>
-        <h3 id="copyright text">Copyright© Lewis</h2>
-    </div>
-    <div id="mobileButtons">
-        <div id="top">
-            <button class="mobileButton" id="upButton">U</button>
-        </div>
-        <div id="mid">
-
-            <button class="mobileButton" id="leftButton">L</button>
-            <button class="mobileButton" id="rightButton">R</button>
-        </div>
-        <div id="bottom">
-            <button class="mobileButton" id="downButton">D</button>
-        </div>
+      </div>
+      <h3 id="copyright text">Copyright© Lewis</h3>
     </div>
 
-
-</body>
-<script src="index.js"></script>
-
+    <!-- <div id="mobileButtons">
+      <div id="top">
+        <button class="mobileButton" id="upButton">U</button>
+      </div>
+      <div id="mid">
+        <button class="mobileButton" id="leftButton">L</button>
+        <button class="mobileButton" id="rightButton">R</button>
+      </div>
+      <div id="bottom">
+        <button class="mobileButton" id="downButton">D</button>
+      </div> -->
+    <!-- </div> -->
+  </body>
+  <script src="index.js"></script>
 </html>
