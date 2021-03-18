@@ -5,7 +5,6 @@ body {
   font-family: Courier;
   touch-action: manipulation;
 }
-
 .button {
   color: #33ff00;
   border: 2px solid #33ff00;
@@ -13,72 +12,57 @@ body {
   font-size: 18px;
   padding: 8px 10px;
   font-family: Courier;
+  margin: 0 0.25em;
 }
-
 .button:hover {
-  box-shadow: 0px 0px 8px 1px #33ff00;
+  box-shadow: 0 0 8px 1px #33ff00;
 }
-
 .button-arcade:hover {
-  box-shadow: 0px 0px 8px 1px #33ff00;
+  box-shadow: 0 0 8px 1px #33ff00;
 }
 .button-sleek:hover {
-  box-shadow: 0px 0px 8px 1px #ed6a5a;
+  box-shadow: 0 0 8px 1px #ed6a5a;
 }
-
 .main {
   color: #33ff00;
-  /* color: #ed6a5a; */
 }
-
 h1 {
   text-align: center;
 }
-
 h3 {
   text-align: center;
   font-size: 14px;
 }
-
 .metrics {
   display: flex;
   justify-content: center;
 }
-
 .buttons {
   display: flex;
   justify-content: center;
 }
-
 .metric-item {
   margin: 10px 16px;
 }
-
 .square {
   width: 45px;
   height: 45px;
 }
-
 .arcadeSnake {
   background-color: #33ff00;
 }
-
 .sleekSnake {
   background-color: #ed6a5a;
 }
-
 .arcadeApple {
   background-color: #f51e26;
 }
-
 .sleekApple {
   background-color: #9bc1bc;
 }
-
 .complete-grid {
   position: relative;
 }
-
 .grid {
   width: 450px;
   max-height: 450px;
@@ -87,14 +71,11 @@ h3 {
   display: flex;
   flex-wrap: wrap;
 }
-
 #overlay {
   display: none;
 }
-
 .overlay-arcade {
   position: absolute;
-
   width: 150px;
   height: 150px;
   top: 0;
@@ -106,12 +87,10 @@ h3 {
   background-color: #f51e26;
   text-align: center;
   color: black;
-
   line-height: 100px;
 }
 .overlay-sleek {
   position: absolute;
-
   width: 150px;
   height: 150px;
   top: 0;
@@ -125,26 +104,21 @@ h3 {
   color: black;
   line-height: 100px;
 }
-
-#mobileButtons {
+/* #mobileButtons {
   text-align: center;
-
   width: 500px;
   margin-right: auto;
   margin-left: auto;
 }
-
 .mobileButton {
   width: 50px;
   height: 50px;
   margin: 5px;
   text-align: center;
-
   border-radius: 10px;
   font-size: 24px;
   padding: 5px;
 }
-
 #mid {
   margin: 0 8px;
-}
+} */

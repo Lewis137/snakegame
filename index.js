@@ -8,10 +8,10 @@ const arcadeButton = document.querySelector('#arcadeMode')
 const sleekButton = document.querySelector('#sleekMode')
 const background = document.getElementsByTagName('body')[0]
 const movesDisplay = document.getElementById('moves')
-const upArrow = document.getElementById('upButton')
-const downArrow = document.getElementById('downButton')
-const leftArrow = document.getElementById('leftButton')
-const rightArrow = document.getElementById('rightButton')
+// const upArrow = document.getElementById('upButton')
+// const downArrow = document.getElementById('downButton')
+// const leftArrow = document.getElementById('leftButton')
+// const rightArrow = document.getElementById('rightButton')
 let overlaySelection = 'overlay-arcade'
 const squares = []
 let appleIndex = 0
@@ -219,23 +219,25 @@ function gameOverOff () {
   overlay.classList.remove(overlaySelection)
 }
 
-function upArrowfunction () {
-  direction = -width
-}
+// mobile buttons
 
-function downArrowfunction () {
-  direction = +width
-}
+// function upArrowfunction () {
+//   direction = -width
+// }
 
-function leftArrowfunction () {
-  direction = -1
-}
+// function downArrowfunction () {
+//   direction = +width
+// }
 
-function rightArrowfunction () {
-  direction = +1
-}
+// function leftArrowfunction () {
+//   direction = -1
+// }
 
-upArrow.addEventListener('click', upArrowfunction)
-downArrow.addEventListener('click', downArrowfunction)
-leftArrow.addEventListener('click', leftArrowfunction)
-rightArrow.addEventListener('click', rightArrowfunction)
+// function rightArrowfunction () {
+//   direction = +1
+// }
+
+// upArrow.addEventListener('click', upArrowfunction)
+// downArrow.addEventListener('click', downArrowfunction)
+// leftArrow.addEventListener('click', leftArrowfunction)
+// rightArrow.addEventListener('click', rightArrowfunction)
