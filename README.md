@@ -1,5 +1,5 @@
 # Snake Game
-A retro Snake game built with vanilla JS. The game has two selectable themes that can be changed during gameplay. A score, local highscore and move counter are used to track gameplay.
+A retro Snake game built with vanilla JS. 
 
 ## Live Preview
 
@@ -9,6 +9,11 @@ The game is live [here](https://lewisdev94.github.io/snakegame/), hosted on GitH
 
 - HTML, CSS, JavaScript
 
+## Current Features
+
+- Two selectable themes
+- A score, local highscore and move counter
+
 ## Completed Improvements
 - Move counter only goes up when a new direction is selected
 - Added a pastel theme
@@ -17,6 +22,7 @@ The game is live [here](https://lewisdev94.github.io/snakegame/), hosted on GitH
 
 ## Future Improvements
 - Refactor theme changing code to be less bloated
+- Comment code throughout
 - User selectable themes with a colour picker tool
 - Highscore submit to a database
 - Mobile onscreen buttons and media queries for a full mobile experience. (Proof of concept partial code already in place)
@@ -25,4 +31,6 @@ The game is live [here](https://lewisdev94.github.io/snakegame/), hosted on GitH
 ## Creator
 
 Built by Lewis Chandler - [Lewisdev94](https://github.com/Lewisdev94)
+
+
 Designed by Ola
