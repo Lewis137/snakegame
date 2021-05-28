@@ -3,7 +3,7 @@ A retro Snake game built with vanilla JS.
 
 ## Live Preview
 
-The game is live [here](https://lewisdev94.github.io/snakegame/), hosted on GitHub Pages.
+The game is live [here](https://snake.lewisdev.me).
 
 ## Technologies
 
@@ -15,6 +15,7 @@ The game is live [here](https://lewisdev94.github.io/snakegame/), hosted on GitH
 - A score, local highscore and move counter
 
 ## Completed Improvements
+- Changed the interval time so that the game gets harder quicker
 - Move counter only goes up when a new direction is selected
 - Added a pastel theme
 - You will no longer lose if you try to move into the direction of your snake head, only if you hit the body

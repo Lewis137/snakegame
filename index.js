@@ -21,8 +21,8 @@ const width = 10
 let moves = 0
 let score = 0
 let highScore = 0
-let intervalTime = 750
-const speedChange = 0.95
+let intervalTime
+const speedChange = 0.9
 let timerId = 0
 let snake = 'arcadeSnake'
 let apple = 'arcadeApple'
@@ -69,11 +69,10 @@ const startGame = () => {
   movesDisplay.textContent = 0
   scoreDisplay.textContent = 0
   direction = 1
-  intervalTime = 1000
+  intervalTime = 950
   currentSnake.forEach(index => squares[index].classList.add(snake))
   generateApples()
   timerId = setInterval(move, intervalTime)
-
   gameOverOff()
 }
 
